@@ -25,6 +25,12 @@ public class PlayerShooting : MonoBehaviour
         bulletPool = GetComponent<ObjectPool>();
     }
 
+    public void RecoverAmmo(int amount)
+    {
+        currentAmmo = Mathf.Min(currentAmmo + amount, maxAmmo);
+        Debug.Log("Munición: " + currentAmmo);
+    }
+
     public bool CanShoot()
     {
         // Check if enough time has passed since the last shot and if there is ammo available (or if infinite ammo is enabled)
@@ -48,6 +54,7 @@ public class PlayerShooting : MonoBehaviour
             if (!infiniteAmmo) currentAmmo--;
             ///Get a bullet from the object pool.
             GameObject bullet = bulletPool.GetObjectFromPool();
+            bullet.GetComponent<BulletController>().SetDamage(BulletDamage);
             // Set the bullet's position and rotation to the spawn point.
             bullet.transform.position = bulletSpawnPoint.position;
             bullet.transform.rotation = bulletSpawnPoint.rotation;

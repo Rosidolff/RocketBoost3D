@@ -6927,6 +6927,7 @@ GameObject:
   - component: {fileID: 5360871728783968125}
   - component: {fileID: 1271148039308884441}
   - component: {fileID: 9209478746042250927}
+  - component: {fileID: 5893475238625435197}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7125,6 +7126,16 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
     m_Priority: 0
+  shoot:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 11e5c22d-11e8-4237-a0d3-da85aadee63b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+    m_Priority: 0
   moveForce: 40
   rotationForce: 100
   mainEngineParticles: {fileID: 543541198639177510}
@@ -7258,6 +7269,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
   objectPrefab: {fileID: 0}
   poolSize: 10
+--- !u!114 &5893475238625435197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703510588550291637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3496f39987cb43029d7d9a72004b6e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthManager
+  maxHealth: 3
 --- !u!1 &4044802254886927029
 GameObject:
   m_ObjectHideFlags: 0

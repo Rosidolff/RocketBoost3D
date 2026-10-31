@@ -11,12 +11,14 @@ public class CollisionManager : MonoBehaviour
     [SerializeField] private ParticleSystem landingParticlesSystem;
 
     AudioSource audioSource;
+    private PlayerHealthManager playerHealth;
 
     bool isControllable = true;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        playerHealth = GetComponent<PlayerHealthManager>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -32,11 +34,18 @@ public class CollisionManager : MonoBehaviour
                 manageCollision(landingAudioClip, landingParticlesSystem);
                 break;
             case "Explosion":
-                manageCollision(explosionAudioClip, explosionParticlesSystem);
+                playerHealth.TakeDamage(1);
                 break;
             default:
                 break;
         }
+    }
+
+    public void Die()
+    {
+        if (!isControllable) return;
+
+        manageCollision(explosionAudioClip, explosionParticlesSystem);
     }
 
 /// <summary>
